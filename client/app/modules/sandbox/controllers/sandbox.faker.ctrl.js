@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.sandbox');
 app.controller('SandboxFakerCtrl', function($scope, $window, CoreService,
-  FakeService, Event, Post, User) {
+  FakeService, Event, Post, User, Ticket) {
 
   $scope.faker = [];
 
@@ -51,8 +51,24 @@ app.controller('SandboxFakerCtrl', function($scope, $window, CoreService,
       $scope.faker.push(fake);
       Event.create(fake);
     }
+    CoreService.toastSuccess('Created ' + $scope.records + ' events');
   };
 
+  $scope.fakeTickets = function() {
+    $scope.faker = [];
+    for (var i = 0; i < $scope.records; i++) {
+      var fake = {
+        name: FakeService.faker.lorem.sentence(),
+        description: FakeService.faker.lorem.paragraph(),
+        startTime: FakeService.faker.date.future(),
+        endTime: FakeService.faker.date.future()
+      };
+      $scope.faker.push(fake);
+      Ticket.create(fake);
+    }
+    CoreService.toastSuccess('Created ' + $scope.records + ' tickets');
+  };
+  
 });
 
 

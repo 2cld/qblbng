@@ -39,8 +39,22 @@ QuickBooks LoopBack aNGular (an experiment)
 
 ## qblbng add faker data to ticket model
 
-- tbdsomething
-- tbdsomething
+- modedit client/app/modules/sandbox/controllers/sandbox.faker.ctrl.js
+- Copy the $scope.fakeEvents and make it $scope.fakeTickets
+- pass 'Ticket' into the SandboxFakerCtrl (line 4)
+- NOTE: The 'Ticket' object is provided by js/lb-services.js
+- add Tickets button (line 17) to client/app/modules/sandbox/views/faker.html
+- grunt build
+- npm start
+- login admin@admin.com admin
+- Get token from network traffic monitor
+- browse to http://localhost:3000/explorer
+- paste token into setToken box
+- browse to http://localhost:3000/
+- Click Tickets button
+- browse to http://localhost:3000/explorer
+- Click "Try it out!" and should get the faker data
+- Shutdown server (ctrl-c in 'npm start' term)
 
 ## qblbng add ui for ticket model
 
