@@ -33,7 +33,7 @@ QuickBooks LoopBack aNGular (an experiment)
 - paste token into setToken box
 - Now you should be able to access ticket api's via explorer
 - git status
-- git add .
+- git add -A
 - git commit (add ticket data model)
 - git push -u origin master
 
@@ -50,16 +50,48 @@ QuickBooks LoopBack aNGular (an experiment)
 - Get token from network traffic monitor
 - browse to http://localhost:3000/explorer
 - paste token into setToken box
-- browse to http://localhost:3000/
+- browse to http://localhost:3000/#/app/sandbox/faker
 - Click Tickets button
-- browse to http://localhost:3000/explorer
+- browse to http://localhost:3000/explorer/#!/tickets/find
 - Click "Try it out!" and should get the faker data
 - Shutdown server (ctrl-c in 'npm start' term)
+- git status
+- git add -A
+- git commit (add ticket faker data)
+- git push -u origin master
 
 ## qblbng add ui for ticket model
 
-- tbdsomething
-- tbdsomething
+- cp -R client/app/modules/events client/app/modules/tickets
+- cleanup file and names in tickets tree
+    - cd client/app/modules/tickets/
+    - mv app.events.js app.tickets.js
+    - mv config/events.config.js config/tickets.config.js 
+    - mv config/events.routes.js config/tickets.routes.js 
+    - mv controllers/events.ctrl.js controllers/tickets.ctrl.js 
+    - change event -> ticket in all the above files and in views dir
+- add to client/app/index.html
+    - script src="/modules/tickets/app.tickets.js"></script
+    - script src="/modules/tickets/config/tickets.config.js"></script
+    - script src="/modules/tickets/config/tickets.routes.js"></script
+    - script src="/modules/tickets/controllers/tickets.ctrl.js"></script
+- add com.module.tickets to client/app/js/app.js
+- cd ~/Code/qblbng (project base dir)
+- grunt build
+- npm start
+- login admin@admin.com admin
+- Get token from network traffic monitor
+- browse to http://localhost:3000/explorer
+- paste token into setToken box
+- browse to http://localhost:3000/#/app/sandbox/faker
+- Click Tickets button
+- browse to http://localhost:3000/explorer/#!/tickets/find
+- Click "Try it out!" and should get the faker data
+- Shutdown server (ctrl-c in 'npm start' term)
+- git status
+- git add -A
+- git commit (add ticket faker data)
+- git push -u origin master
 
 ## qblbng create qblbng-test repo to test ui for ticket model
 
