@@ -1,0 +1,7 @@
+{
+  "name": "qblbng",
+  "description": "Experimental test site loopback angular based ",
+  "repository": "https://github.com/christrees/qblbng",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "angular", "loopback"]
+}
