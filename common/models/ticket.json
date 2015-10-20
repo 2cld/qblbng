@@ -1,0 +1,38 @@
+{
+  "name": "Ticket",
+  "plural": "tickets",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "date"
+    },
+    "end_time": {
+      "type": "date"
+    },
+    "location": {
+      "type": "String"
+    },
+    "url": {
+      "type": "String"
+    },
+    "image": {
+      "type": "String"
+    },
+    "tags": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

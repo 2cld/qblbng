@@ -1,5 +1,64 @@
 # qblbng
 QuickBooks LoopBack aNGular (an experiment)
+
+## qblbng Setup
+
+- git clone https://github.com/christrees/qblbng.git
+- cd qblbng
+- npm install
+- grunt build
+- npm start
+- browse to http://localhost:3000/
+- Open DevTools (so we can get an API token when login)
+- login admin@admin.com admin
+- Get token from network traffic monitor
+- browse to http://localhost:3000/explorer
+- paste token into setToken box
+- Now you should be able to access all api's via explorer
+
+## qblbng add new data model
+
+- Shutdown server (ctrl-c in 'npm start' term)
+- cp common/models/event.json common/models/ticket.json
+- cleanup poke.json names and add reference in server/model-config.json
+- cd client/app
+- mv js/lb-services.js js/lb-services_org (just to keep original around)
+- lb-ng ../../server/server.js js/lb-services.js
+- cd ../../ (should be in qblbng top)
+- grunt build
+- npm start
+- login admin@admin.com admin
+- Get token from network traffic monitor
+- browse to http://localhost:3000/explorer
+- paste token into setToken box
+- Now you should be able to access ticket api's via explorer
+- git status
+- git add .
+- git commit (add ticket data model)
+- git push -u origin master
+
+## qblbng add faker data to ticket model
+
+- tbdsomething
+- tbdsomething
+
+## qblbng add ui for ticket model
+
+- tbdsomething
+- tbdsomething
+
+## qblbng create qblbng-test repo to test ui for ticket model
+
+- tbdsomething
+- tbdsomething
+
+## qblbng deploy to heroku and test
+
+- tbdsomething
+- tbdsomething
+
+## Initial Creation of qblbng
+
 - git clone https://github.com/christrees/loopback-angular-admin.git qblbng
 - cd qblbng/
 - rm -rf .git
@@ -7,6 +66,12 @@ QuickBooks LoopBack aNGular (an experiment)
 - rm -rf screenshots/
 - modupdate app.json (update to this repo)
 - modupdate package.json (update to this repo)
+- git init
+- git remote add origin https://github.com/christrees/qblbng.git
+- git status
+- git add .
+- git commit
+- git push -u origin master
 
 ## cat9sltest 
 cat9sltest is a HACKOF [loopback-angular-admin](https://github.com/beeman/loopback-angular-admin)

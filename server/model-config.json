@@ -73,5 +73,9 @@
   "user": {
     "dataSource": "db",
     "public": true
+  },
+  "Ticket": {
+    "dataSource": "db",
+    "public": true
   }
 }
