@@ -13,7 +13,10 @@
       | input[name='email']     | admin@admin.com |
       | input[name='password']  | admin           |
     And   I submit "form#signin" form
+    And I wait for Angular app "body"
     And   I wait 3 seconds
     Then  I should see "admin@admin.com" in the "a.ng-binding" element
-    
- 
+    And   I should see "Dashboard" in the "a.ng-binding" element
+    Then  I pause
+
+     

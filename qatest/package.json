@@ -12,7 +12,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "date && cucumber-js --require features/support/cucumber-mink.js && date"
+    "test": "date && cucumber-js --require features/support/cucumber-mink.js && date",
+    "seUpdate": "./node_modules/.bin/webdriver update",
+    "seStart": "./node_modules/.bin/webdriver start"
   },
   "repository": {
     "type": "git",

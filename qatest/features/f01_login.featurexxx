@@ -1,0 +1,42 @@
+
+ Feature: I can use cucumber.mink to check the content of my website
+  Background:
+    Given a user email "admin@admin.com" password "admin" test site "http://localhost:3000"
+
+  Scenario: Check Homepage content
+    Given I am on the homepage
+    And   I wait 3 seconds
+    And   I should see "Sign In" in the "span" element
+    And   I should see an "input#email" element
+    And   I should see an "input#password" element
+    When  I fill in the following:
+      | input[name='email']     | admin@admin.com |
+      | input[name='password']  | admin           |
+    And   I submit "form#signin" form
+    And   I wait 3 seconds
+    Then  I should see "admin@admin.com" in the "a.ng-binding" element
+    And   I should see "Dashboard" in the "a.ng-binding" element
+    And   I should see "Sandbox" in the "a.ng-binding" element
+    And   I should see "Users" in the "a.ng-binding" element
+    And   I should see "Tickets" in the "a.ng-binding" element
+    And   I should see "Dashboard" in the "a.ng-binding" element
+    And   I should see "0" in the "small-box[name='Tickets'] > div > div.small-box > div.inner > h3" element
+    And   I should not see "Sandbox" in the "h1" element
+    When  I follow "a[href='/app/sandbox']"
+    And   I wait 3 seconds
+    Then  I should see "Sandbox" in the "h1" element
+    And   I should see "Faker" in the "a.ng-binding" element
+    When  I follow "a[href='/app/sandbox/faker']"
+    And   I wait 3 seconds
+    Then  I should see "Faker" in the "h3.box-title" element
+    And   I should see "Tickets" in the "a[ng-click='fakeTickets()']" element
+    When  I follow "a[ng-click='fakeTickets()']"
+    And   I wait 3 seconds
+    When  I follow "a[href='/app']"
+    Then  I pause
+    And   I wait 3 seconds
+    And   I reload the page
+    And   I wait 3 seconds
+    Then  I should see "10" in the "small-box[name='Tickets'] > div > div.small-box > div.inner > h3" element
+
+     
